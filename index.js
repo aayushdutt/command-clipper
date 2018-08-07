@@ -4,9 +4,6 @@ var Datastore = require('nedb')
 
 const { exec } = require('child_process');
 
-
-
-
 //Run Command
 const runCommand = (cmdName) => {
   commandData = findCommand(cmdName, function(commandData) {
@@ -42,8 +39,16 @@ const findCommand = (name, cb) => {
   // Make case insensitive
   const search = new RegExp(name, 'i');
   db.find({ shortCommand: search }, { fullCommand: 1, shortCommand: 1 }, function (err, command) {
-    // console.log(command);
     cb(command);
+  });
+}
+
+// Find and Show Command
+const findAndShowCommand = (name, cb) => {
+  // Make case insensitive
+  const search = new RegExp(name, 'i');
+  db.find({ shortCommand: search }, { fullCommand: 1, shortCommand: 1 }, function (err, command) {
+    console.log(command)
   });
 }
 
@@ -72,7 +77,7 @@ const listCommands = () => {
 // Export All Methods
 module.exports = {
   addCommand,
-  findCommand,
+  findAndShowCommand,
   updateCommand,
   removeCommand,
   listCommands,

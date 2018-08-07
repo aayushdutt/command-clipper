@@ -1,6 +1,2 @@
-{"fullCommand":"npm init","shortCommand":"ini","_id":"BTt70hgCCKH5oFQN"}
-{"fullCommand":"npm init --save","shortCommand":"save","_id":"ITa1la5pmoBwgDOh"}
-{"fullCommand":"ls -la","shortCommand":"la","_id":"IpNaGCjrM5HAoXMa"}
-{"firstname":"qwer","lastname":"asdf","phone":"zcx","email":"rt","_id":"JR6wWXlW03LjRZXF"}
-{"firstname":"pp","lastname":"qq","phone":"rr","email":"ss","_id":"LbcC8IgKSJ2vApDm"}
-{"fullCommand":"npm save desktop icon","shortCommand":"sdi","_id":"S8A24COKGcPvWyjX"}
+{"fullCommand":"ls","shortCommand":"l","_id":"QkZjqqV2c8EBtNHm"}
+{"fullCommand":"ls -la","shortCommand":"la","_id":"iPwBOETGjfCkf5NN"}

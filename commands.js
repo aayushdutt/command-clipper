@@ -3,7 +3,7 @@ const program = require('commander');
 const { prompt } = require('inquirer');
 const {
   addCommand,
-  findCommand,
+  findCommandAndDisplay,
   updateCommand,
   removeCommand,
   listCommands,
@@ -43,7 +43,7 @@ program
   .command('find <name>')
   .alias('f')
   .description('Find a command')
-  .action(name => findCommand(name));
+  .action(name => findCommandAndDisplay(name));
 
 // Update Command
 program
