@@ -28,9 +28,9 @@ const executeCommand = (fullCommand) => {
 
 
 // Add Command
-const addCommand = (customer) => {
-  db.insert(customer, function (err, newDoc) { 
-    console.log(newDoc)
+const addCommand = (cmd) => {
+  db.insert(cmd, function (err, newCmd) { 
+    console.log(JSON.stringify(newCmd, null, "  "))
   });
 }
 
@@ -44,18 +44,18 @@ const findCommand = (name, cb) => {
 }
 
 // Find and Show Command
-const findAndShowCommand = (name, cb) => {
+const findCommandAndDisplay = (name, cb) => {
   // Make case insensitive
   const search = new RegExp(name, 'i');
   db.find({ shortCommand: search }, { fullCommand: 1, shortCommand: 1 }, function (err, command) {
-    console.log(command)
+    console.log(JSON.stringify(command, null, "  "))
   });
 }
 
 // Update Command
 const updateCommand = (_id, customer) => {
   db.update({ _id }, customer, {}, function (err, updatedCommand) {
-    console.log(updatedCommand);
+    console.log(JSON.stringify(updatedCommand, null, "  "));
   });  
 }
 
@@ -69,7 +69,7 @@ const removeCommand = (_id) => {
 // List Commands
 const listCommands = () => {
   db.find({}, function (err, allCommands) {
-    console.log(allCommands)
+    console.log(JSON.stringify(allCommands, null, "  "))
   });
     
 }
@@ -77,7 +77,7 @@ const listCommands = () => {
 // Export All Methods
 module.exports = {
   addCommand,
-  findAndShowCommand,
+  findCommandAndDisplay,
   updateCommand,
   removeCommand,
   listCommands,
