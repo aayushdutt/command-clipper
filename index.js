@@ -2,13 +2,33 @@
 var Datastore = require('nedb')
 , db = new Datastore({ filename: './database/fullCommands', autoload: true });
 
+const { exec } = require('child_process');
+
+
+
 
 //Run Command
 const runCommand = (cmdName) => {
   commandData = findCommand(cmdName, function(commandData) {
-    console.log(commandData)
+    executeCommand(commandData[0].fullCommand)
   }) 
 }
+
+//Execute command
+const executeCommand = (fullCommand) => {
+  exec(fullCommand, (err, stdout, stderr) => {
+    if (err) {
+      // node couldn't execute the command
+      return;
+    }
+  
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  });
+
+}
+
 
 // Add Command
 const addCommand = (customer) => {
